@@ -1,0 +1,120 @@
+@import 'variables';
+
+.SignIn {
+  height: 100vh;
+  position: relative;
+  padding-top: 130px;
+
+  &__Container {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+
+    &-Intro {
+      flex-grow: 1;
+      padding-right: 80px;
+      padding-top: 75px;
+      
+      img {
+        width: auto;
+        height: 60px;
+        margin-bottom: 15px;
+      }
+
+      h2 {
+        color: #1c1e21;
+        font-size: 28px;
+        line-height: 32px;
+      }
+    }
+
+    &-FormWrapper {
+      flex-basis: 396px;
+      flex-shrink: 0;
+      background-color: $color-white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+      border-radius: 8px;
+      padding: 16px 16px 24px;
+    }
+
+    &-Form {
+
+      &-Input {
+        width: 100%;
+        margin-bottom: 12px;
+        padding: 14px 16px;
+        background-color: $color-white;
+        border: 1px solid #dddfe2;
+        border-radius: 6px;
+        color: #1d2129;
+        font-size: 17px;
+        line-height: 16px;
+
+        &::placeholder {
+          color: #90949c;
+        }
+      }
+
+      &-Submit {
+        width: 100%;
+        padding: 0 16px;
+        background-color: $color-primary-blue;
+        border: none;
+        border-radius: 6px;
+        color: $color-white;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 48px;
+        cursor: pointer;
+        transition: background-color 0.2s cubic-bezier(.08,.52,.52,1);
+
+        &:hover {
+          background-color: #166fe5;
+        }
+      }
+    }
+
+    &-ForgotPassword {
+      margin: 16px 0 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #dadde1;
+      text-align: center;
+      
+      a {
+        color: $color-primary-blue;
+        font-size: 14px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &-CreateNewAccount {
+      text-align: center;
+
+      a {
+        display: inline-block;
+        padding: 0 16px;
+        background-color: #42b72a;
+        border-radius: 6px;
+        color: $color-white;
+        font-size: 17px;
+        font-weight: bold;
+        line-height: 48px;
+        transition: background-color 0.2s cubic-bezier(.08,.52,.52,1);
+
+        &:hover {
+          background-color: #36a420;
+        }
+      }
+    }
+  }
+
+  &__Footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+}

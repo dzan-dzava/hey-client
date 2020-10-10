@@ -1,0 +1,62 @@
+@import 'variables';
+
+.SignFooter {
+  background-color: $color-white;
+  padding: 28px 0 92px;
+
+  &__Container {
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  &__LocaleList {
+    display: flex;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #dddfe2;
+
+    li {
+      padding-left: 10px;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      a {
+        color: #8a8d91;
+        font-size: 12px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__LinkList {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -20px;
+
+    li {
+      padding-left: 20px;
+      line-height: 19px;
+
+      a {
+        color: #8a8d91;
+        font-size: 12px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__Copyright {
+    margin-top: 20px;
+    color: #737373;
+    font-size: 11px;
+    line-height: 15px;
+  }
+}
