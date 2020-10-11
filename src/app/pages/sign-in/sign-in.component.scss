@@ -3,7 +3,7 @@
 .SignIn {
   height: 100vh;
   position: relative;
-  padding-top: 130px;
+  padding-top: 120px;
 
   &__Container {
     max-width: 980px;
@@ -52,6 +52,12 @@
 
         &::placeholder {
           color: #90949c;
+        }
+        
+        &:focus {
+          border-color: $color-primary-blue;
+          box-shadow: 0 0 0 2px #e7f3ff;
+          caret-color: $color-primary-blue;
         }
       }
 

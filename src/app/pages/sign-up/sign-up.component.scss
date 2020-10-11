@@ -3,7 +3,7 @@
 .SignUp {
   height: 100vh;
   position: relative;
-  padding-top: 130px;
+  padding-top: 120px;
 
   &__Container {
     max-width: 980px;
@@ -57,6 +57,12 @@
     &-Form {
       padding: 16px 16px 24px;
 
+      &-Heading {
+        color: #606770;
+        font-size: 12px;
+        line-height: 20px;
+      }
+
       &-Group {
         display: flex;
         margin: 0 -5px;
@@ -81,13 +87,19 @@
         &::placeholder {
           color: #90949c;
         }
+
+        &:focus {
+          border-color: $color-primary-blue;
+          box-shadow: 0 0 0 2px #e7f3ff;
+          caret-color: $color-primary-blue;
+        }
       }
 
       &-Select {
-        width: 100%;
-        height: 40px;
+        flex-basis: calc((100% - 30px) / 3);
+        height: 36px;
         margin-bottom: 10px;
-        padding: 5px;
+        padding: 0 5px;
         border: 1px solid #ccd0d5;
         border-radius: 4px;
         color: #1c1e21;
@@ -95,8 +107,36 @@
         line-height: 20px;
       }
 
+      &-Radio {
+        flex-basis: calc((100% - 30px) / 3);
+        border: 1px solid #ccd0d5;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
+        position: relative;
+
+        label {
+          display: block;
+          padding: 7px 28px 7px 10px;
+          color: #1c1e21;
+          font-size: 15px;
+          line-height: 20px;
+          cursor: pointer;
+        }
+
+        input {
+          position: absolute;
+          right: 10px;
+          top: 0;
+          margin: 0;
+          height: 100%;
+          cursor: pointer;
+        }
+      }
+
       &-TermsPolicy {
-        margin: 5px 0 20px;
+        margin-bottom: 20px;
         color: #777;
         font-size: 11px;
         line-height: 15px;
@@ -114,17 +154,32 @@
         display: block;
         min-width: 194px;
         height: 36px;
-        margin: 0 auto;
+        margin: 0 auto 20px;
         background-color: #42b72a;
         border: none;
         border-radius: 6px;
         color: $color-white;
         font-size: 18px;
         font-weight: bold;
+        cursor: pointer;
         transition: background-color 0.2s cubic-bezier(.08,.52,.52,1);
 
         &:hover {
           background-color: #36a420;
+        }
+      }
+
+      &-SignInLink {
+        text-align: center;
+        color: #1c1e21;
+        font-size: 14px;
+
+        a {
+          color: $color-primary-blue;
+
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }
