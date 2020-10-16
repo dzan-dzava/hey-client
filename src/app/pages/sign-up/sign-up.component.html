@@ -1,7 +1,7 @@
 <div class="SignUp">
   <div class="SignUp__Container">
     <div class="SignUp__Container-Intro">
-      <img src="/assets/img/logo.png" alt="Logo">
+      <img src="/assets/images/logo.png" alt="Logo">
       <h2>Connect with friends and the world around you on Hey.</h2>
     </div>
 
@@ -11,14 +11,123 @@
         <span>It’s quick and easy.</span>
       </div>
 
-      <form class="SignUp__Container-Form">
+      <form class="SignUp__Container-Form" [formGroup]="signUpForm">
         <div class="SignUp__Container-Form-Group">
-          <input type="text" class="SignUp__Container-Form-Input" placeholder="First name">
-          <input type="text" class="SignUp__Container-Form-Input" placeholder="Last name">
+          <div class="SignUp__Container-Form-Wrap">
+            <input
+              type="text"
+              class="SignUp__Container-Form-Input"
+              [class.SignUp__Container-Form-Input--Error]="
+                (submitted || signUpForm.get('firstName').touched) &&
+                signUpForm.get('firstName').invalid"
+              placeholder="Firstname"
+              formControlName="firstName">
+            <div
+              *ngIf="(submitted || signUpForm.get('firstName').touched) && signUpForm.get('firstName').invalid"
+              class="SignUp__Container-Form-Error SignUp__Container-Form-Error--Left">
+              <div *ngIf="signUpForm.get('firstName').hasError('required')">Required field</div>
+            </div>
+            <span
+              *ngIf="(submitted || signUpForm.get('firstName').touched) && signUpForm.get('firstName').invalid"
+              class="SignUp__Container-Form-Icon">
+            </span>
+          </div>
+          <div class="SignUp__Container-Form-Wrap">
+            <input
+              type="text"
+              class="SignUp__Container-Form-Input"
+              [class.SignUp__Container-Form-Input--Error]="
+                (submitted || signUpForm.get('lastName').touched) &&
+                signUpForm.get('lastName').invalid"
+              placeholder="Lastname"
+              formControlName="lastName">
+            <div
+              *ngIf="(submitted || signUpForm.get('lastName').touched) && signUpForm.get('lastName').invalid"
+              class="SignUp__Container-Form-Error SignUp__Container-Form-Error--Bottom">
+              <div *ngIf="signUpForm.get('lastName').hasError('required')">Required field</div>
+            </div>
+            <span
+              *ngIf="(submitted || signUpForm.get('lastName').touched) && signUpForm.get('lastName').invalid"
+              class="SignUp__Container-Form-Icon">
+            </span>
+          </div>
         </div>
-        <input type="email" class="SignUp__Container-Form-Input" placeholder="Email address">
-        <input type="password" class="SignUp__Container-Form-Input" placeholder="Password">
-        <input type="password" class="SignUp__Container-Form-Input" placeholder="Repeat password">
+        <div class="SignUp__Container-Form-Wrap">
+          <input
+            type="email"
+            class="SignUp__Container-Form-Input"
+            [class.SignUp__Container-Form-Input--Error]="
+              (submitted || signUpForm.get('email').touched) &&
+              signUpForm.get('email').invalid"
+            placeholder="Email address"
+            formControlName="email">
+          <div
+            *ngIf="(submitted || signUpForm.get('email').touched) && signUpForm.get('email').invalid"
+            class="SignUp__Container-Form-Error SignUp__Container-Form-Error--Left">
+            <div *ngIf="signUpForm.get('email').hasError('required')">Required field</div>
+          </div>
+          <span
+            *ngIf="(submitted || signUpForm.get('email').touched) && signUpForm.get('email').invalid"
+            class="SignUp__Container-Form-Icon">
+          </span>
+        </div>
+        <div class="SignUp__Container-Form-Wrap">
+          <input
+            type="text"
+            class="SignUp__Container-Form-Input"
+            [class.SignUp__Container-Form-Input--Error]="
+              (submitted || signUpForm.get('username').touched) &&
+              signUpForm.get('username').invalid"
+            placeholder="Username"
+            formControlName="username">
+          <div
+            *ngIf="(submitted || signUpForm.get('username').touched) && signUpForm.get('username').invalid"
+            class="SignUp__Container-Form-Error SignUp__Container-Form-Error--Left">
+            <div *ngIf="signUpForm.get('username').hasError('required')">Required field</div>
+          </div>
+          <span
+            *ngIf="(submitted || signUpForm.get('username').touched) && signUpForm.get('username').invalid"
+            class="SignUp__Container-Form-Icon">
+          </span>
+        </div>
+        <div class="SignUp__Container-Form-Wrap">
+          <input
+            type="password"
+            class="SignUp__Container-Form-Input"
+            [class.SignUp__Container-Form-Input--Error]="
+              (submitted || signUpForm.get('password').touched) &&
+              signUpForm.get('password').invalid"
+            placeholder="Password"
+            formControlName="password">
+          <div
+            *ngIf="(submitted || signUpForm.get('password').touched) && signUpForm.get('password').invalid"
+            class="SignUp__Container-Form-Error SignUp__Container-Form-Error--Left">
+            <div *ngIf="signUpForm.get('password').hasError('required')">Required field</div>
+          </div>
+          <span
+            *ngIf="(submitted || signUpForm.get('password').touched) && signUpForm.get('password').invalid"
+            class="SignUp__Container-Form-Icon">
+          </span>
+        </div>
+        <div class="SignUp__Container-Form-Wrap">
+          <input
+            type="password"
+            class="SignUp__Container-Form-Input"
+            [class.SignUp__Container-Form-Input--Error]="
+              (submitted || signUpForm.get('repeatPassword').touched) &&
+              signUpForm.get('repeatPassword').invalid"
+            placeholder="Repeat password"
+            formControlName="repeatPassword">
+          <div
+            *ngIf="(submitted || signUpForm.get('repeatPassword').touched) && signUpForm.get('repeatPassword').invalid"
+            class="SignUp__Container-Form-Error SignUp__Container-Form-Error--Left">
+            <div *ngIf="signUpForm.get('repeatPassword').hasError('required')">Required field</div>
+          </div>
+          <span
+            *ngIf="(submitted || signUpForm.get('repeatPassword').touched) && signUpForm.get('repeatPassword').invalid"
+            class="SignUp__Container-Form-Icon">
+          </span>
+        </div>
         <div class="SignUp__Container-Form-Heading">Birthday</div>
         <div class="SignUp__Container-Form-Group">
           <select class="SignUp__Container-Form-Select">
@@ -50,15 +159,18 @@
         <div class="SignUp__Container-Form-Group">
           <div class="SignUp__Container-Form-Radio">
             <label for="male">Male</label>
-            <input type="radio" id="male" name="gender">
+            <input type="radio" id="male" value="male" formControlName="gender">
           </div>
           <div class="SignUp__Container-Form-Radio">
             <label for="female">Female</label>
-            <input type="radio" id="female" name="gender">
+            <input type="radio" id="female" value="female" formControlName="gender">
           </div>
         </div>
         <div class="SignUp__Container-Form-TermsPolicy">By clicking Sign Up, you agree to our <a href="#">Terms</a>, <a href="#">Data Policy</a> and <a href="#">Cookies Policy</a>. You may receive SMS Notifications from us and can opt out any time.</div>
-        <button class="SignUp__Container-Form-Submit">Sign Up</button>
+        <button
+          type="button"
+          class="SignUp__Container-Form-Submit"
+          (click)="signUp()">Sign Up</button>
         <div class="SignUp__Container-Form-SignInLink">If you already have an account <a routerLink="/sign-in">Sign In</a></div>
       </form>
     </div>

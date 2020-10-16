@@ -3,7 +3,7 @@
 .SignUp {
   height: 100vh;
   position: relative;
-  padding-top: 120px;
+  padding-top: 100px;
 
   &__Container {
     max-width: 980px;
@@ -67,15 +67,85 @@
         display: flex;
         margin: 0 -5px;
 
-        input, select {
+        .SignUp__Container-Form-Wrap {
+          margin-left: 5px;
+          margin-right: 5px;
+        }
+
+        select {
           margin-left: 5px;
           margin-right: 5px;
         }
       }
 
+      &-Wrap {
+        position: relative;
+        margin-bottom: 10px;
+      }
+
+      &-Error {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        min-width: 170px;
+        padding: 13px;
+        color: #fff;
+        font-size: 12px;
+        line-height: 17px;
+        background-color: #be4b49;
+        border-radius: 2px;
+        box-shadow: 0 0 0 1px rgba(139, 3, 0, .75), 0 1px 10px rgba(0, 0, 0, .35);
+
+        &--Left {
+          left: -188px;
+          top: -2px;
+
+          &::after {
+            content: '';
+            border-left: 11px solid #be4b49;
+            border-top: 11px solid transparent;
+            border-bottom: 11px solid transparent;
+            position: absolute;
+            top: 50%;
+            right: -11px;
+            transform: translateY(-50%);
+          }
+        }
+
+        &--Bottom {
+          top: 58px;
+          left: 0;
+
+          &::after {
+            content: '';
+            border-bottom: 11px solid #be4b49;
+            border-right: 11px solid transparent;
+            border-left: 11px solid transparent;
+            position: absolute;
+            top: -11px;
+            left: 15px;
+          }
+        }
+
+        &-Messages {
+          position: absolute;
+          left: 0;
+        }
+      }
+
+      &-Icon {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        width: 16px;
+        height: 16px;
+        background-image: url('/assets/images/icons/warning-circle.svg');
+        background-size: contain;
+      }
+
       &-Input {
         width: 100%;
-        margin-bottom: 10px;
         padding: 11px 11px;
         background-color: $color-white;
         border: 1px solid #dddfe2;
@@ -92,6 +162,14 @@
           border-color: $color-primary-blue;
           box-shadow: 0 0 0 2px #e7f3ff;
           caret-color: $color-primary-blue;
+
+          + .SignUp__Container-Form-Error {
+            display: block;
+          }
+        }
+
+        &--Error {
+          border-color: red;
         }
       }
 
